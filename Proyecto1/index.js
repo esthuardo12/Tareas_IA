@@ -132,8 +132,9 @@ function getmov(tablero,indice,pos){
 
 
 function start(tab){
-  
+  //ingresa los valores para el juego
   let val = logica(tab,0,true,0);
+  //creo los valores a retornar
   let retornar=ObtenerValor1(val[1])+''+ObtenerValor2(val[1]);
   return retornar;
   
@@ -149,15 +150,14 @@ app.get('/', (req, res) => {
   cadTablero=valor2;
   convertCadToArray();
   printTablero(board);
-  let resultado =start(board);  
-  //let s= allPosibleMovements(board,player);
-  //let cad= getY(s[0][1])+''+getX(s[0][1]);
-  //console.log("Final ",cad);
+  //se inicia la logica del juego
+  let resultado =start(board);
   console.log(player,"op: ",op);
-
+  //retorna el resultado
   res.send(resultado)
 })
 
 app.listen(port, () => {
+  //escuchando el puerto para realizar las peticiones
   console.log(` Running on port :${port}`)
 });
